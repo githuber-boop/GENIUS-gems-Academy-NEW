@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="container header">
+        <div class="logo"><img src="./img/genius gems logo.png" alt="Genius Gems Academy Logo"></div>
+     
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html" class="hover-underline-animation">Home</a></li>
+          <li><a href="subjects.html" class=" link-active">Subjects</a></li>
+          <li><a href="tutors.html" class="hover-underline-animation">Tutors</a></li>
+          <li><a href="pricing.html" class="hover-underline-animation">Pricing</a></li>
+          <li><a href="index.html#contact-us" class="button">Contact</a></li>
+        </ul>
+      </nav>
+
+    </header> 
+
+    <main class="background-container">
+        <div class=" container subjects-hero flex-container">
+            <div class="subjects-hero-text">
+                <h1>Learn with a top and educated tutor </h1>
+                <p>Experience the convenience of online learning with our dedicated Maths and Science tutors who specialize in teaching students from Grades 5 to 10.  Schedule a free meeting, then book personalized 1:1 lessons that fit your schedule. Learning Maths and Science has never been easier – it's as simple as pie!</p>
+            </div>
+    
+            <div class="subjects-hero-img">
+                <img src="./img/subjects-hero-img.png" alt="a person studying with laptop">
+            </div>
+        </div>
+    </main>
+
+    <section class="subjects-select ">
+
+        <h1 class="centre">Choose the subject and grade</h1>
+
+        <div class="bruh flex-container">
+            <div class="dropdown">
+                <label for="dropdown1">SUBJECT</label>
+                <select name="dropdown" id="dropdown1(2)">
+                    <option value="">Select any option</option>
+                    <option value="Mathematics"> Mathematics </option>
+                    <option value="Computer Science"> Computer Science </option>
+                </select>
+            </div>
+    
+            <div class="dropdown">
+                <label for="dropdown">GRADE</label>
+                <select name="dropdown" id="dropdown2(2)">
+                    <option value="">Select any option</option>
+                    <option value="Class 8" class="hidden-maths"> Class 8 </option>
+                    <option value="Class 9" class="hidden-maths"> Class 9 </option>
+                    <option value="Class 10"> Class 10 </option>
+                    <option value="Class 11"> Class 11 </option>
+                    <option value="Class 12"> Class 12 </option>
+                </select>
+            </div>
+        </div>
+
+        <div id="result" style="display: none;"></div>
+        <div class="centre">
+            <a href="index.html#contact-us" id="button"  class="contact" style="display: none;">Contact</a>
+        </div>
+    </section>
+
+    <section class="demo centre">
+        <p>Contact Us Now for a Free Demo</p>
+        <li><a href="index.html#contact-us" class="button">Contact</a></li>
+      </section>
+
+    <script src="subjectsi.js"></script>
+</body>
+</html>

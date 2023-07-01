@@ -6,28 +6,33 @@ hamburger.onclick = function() {
   // header.classList.toggle("active")
 }
 
-var country = "" 
-function detectCountry(){
 
-fetch('https://ipapi.co/json/')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    country =data.country;
-    if(country == "IN")
-    window.location.replace("indexi.html")
-    
-  });
- 
-}
+  let redirected = false;
+  function redirectBasedOnLocation() {
+    // Make a request to the Geolocation API
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        const country = data.country_code;
+  
+        // Check if the visitor is from India (country code: IN)
+        if (country === 'IN' && !redirected) {
+          redirected = true;
+          // Redirect to the India-specific page
+          window.location.href = 'indexi.html';
+          console.log("Hello")
 
-window.onload = function () {
-  if (localStorage.getItem("hasCodeRunBefore") === null) {
-      detectCountry();
-      localStorage.setItem("hasCodeRunBefore", true);
+        }
+      })
+      .catch(error => {
+        
+      });
   }
-}
+  
+window.onload = redirectBasedOnLocation;
+
+  // Call the function when the page loads
+
 
 
 const swiper = new Swiper('.swiper', {
@@ -35,7 +40,7 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 10,
   loop: true,
   autoplay: {
-    delay: 2000
+    delay: 5000
   },
   grabCursor: true,
   pagination: {
@@ -55,4 +60,6 @@ const swiper = new Swiper('.swiper', {
   }
 }
 });
+
+
 

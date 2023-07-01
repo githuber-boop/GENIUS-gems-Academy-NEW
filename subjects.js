@@ -24,9 +24,11 @@ function updateResult() {
     resultDiv.innerHTML = "<b>Number</b>  Properties, manipulation, equations <b>Algebra</b>  Equations, functions, graphs <b>Geometry</b>  2D/3D shapes, trigonometry <b>Statistics</b>  Data handling, probability <b>Ratio and proportion</b>  Scaling, rates of change";
     button.style.display =  "inline-block"
   } 
+
+  
   
   if (option1 === "Science" && option2 === "KS2") {
-    resultDiv.innerHTML = "<b>Living things and their habitats</b>  <b>Plants</b> <b>Animals, including humans</b> <b>Evolution and inheritance</b> <b>Rocks</b> <b>Light</b> <b>Forces and magnets</b> <b>Sound</b> <b>Earth and space</b> <b>Properties and changes of materials</b> <b>Electricity</b> <b>Scientific enquiry</b> ";
+    resultDiv.innerHTML = "Living things and their habitats <b>Plants</b> <b>Animals, including humans</b> <b>Evolution and inheritance</b> <b>Rocks</b> <b>Light</b> <b>Forces and magnets</b> <b>Sound</b> <b>Earth and space</b> <b>Properties and changes of materials</b> <b>Electricity</b> <b>Scientific enquiry</b> ";
     button.style.display =  "inline-block"
   } else if (option1 === "Science" && option2 === "KS3") {
     resultDiv.innerHTML = "<b>Cells, tissues and organs</b>  <b>Reproduction in plants and animals</b> <b>Atoms, elements, and compounds</b> <b>Acids and alkalis</b> <b>Chemical reactions</b> <b>The periodic table</b> <b>Sound and light waves</b> <b>Energy transfer and conservation</b> <b>Motion and forces</b> <b>Electricity and magnetism</b> <b>Ecosystems and food webs</b> <b>Adaptation and inheritance</b> <b>Earth and space</b> <b>Health and lifestyle</b>";
@@ -42,3 +44,27 @@ function updateResult() {
   resultDiv.style.display = resultDiv.innerHTML !== "" ? "block" : "none";
 }
 
+
+let redirected = false;
+function redirectBasedOnLocation() {
+  // Make a request to the Geolocation API
+  fetch('https://ipapi.co/json/')
+    .then(response => response.json())
+    .then(data => {
+      const country = data.country_code;
+
+      // Check if the visitor is from India (country code: IN)
+      if (country === 'IN' && !redirected) {
+        redirected = true;
+        // Redirect to the India-specific page
+        window.location.href = 'subjectsi.html';
+        console.log("Hello")
+
+      }
+    })
+    .catch(error => {
+      
+    });
+}
+
+window.onload = redirectBasedOnLocation;
