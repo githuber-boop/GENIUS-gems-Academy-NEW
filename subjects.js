@@ -44,27 +44,3 @@ function updateResult() {
   resultDiv.style.display = resultDiv.innerHTML !== "" ? "block" : "none";
 }
 
-
-let redirected = false;
-function redirectBasedOnLocation() {
-  // Make a request to the Geolocation API
-  fetch('https://ipapi.co/json/')
-    .then(response => response.json())
-    .then(data => {
-      const country = data.country_code;
-
-      // Check if the visitor is from India (country code: IN)
-      if (country === 'IN' && !redirected) {
-        redirected = true;
-        // Redirect to the India-specific page
-        window.location.href = 'subjectsi.html';
-        console.log("Hello")
-
-      }
-    })
-    .catch(error => {
-      
-    });
-}
-
-window.onload = redirectBasedOnLocation;
